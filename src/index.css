@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+    font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv11';
+  }
+
+  /* Tighter, more dramatic display headlines */
+  .display {
+    @apply font-display tracking-[-0.02em];
+    font-variation-settings: 'opsz' 144, 'SOFT' 50;
+  }
+
+  ::selection {
+    @apply bg-ink text-cream;
+  }
+}
+
+@layer utilities {
+  /* Subtle fade + lift on page load */
+  .reveal {
+    animation: reveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .reveal-delay-1 {
+    animation-delay: 0.08s;
+  }
+  .reveal-delay-2 {
+    animation-delay: 0.16s;
+  }
+  .reveal-delay-3 {
+    animation-delay: 0.24s;
+  }
+  .reveal-delay-4 {
+    animation-delay: 0.32s;
+  }
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
