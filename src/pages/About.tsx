@@ -1,14 +1,15 @@
 export default function About() {
   return (
-    <div className="max-w-5xl mx-auto px-6 sm:px-8 pt-24 sm:pt-32 pb-16">
-      {/* Profile + intro */}
-      <section className="grid sm:grid-cols-[280px_1fr] gap-12 items-start">
-        <div className="reveal">
-          <div className="rounded-2xl overflow-hidden bg-ink/5 aspect-[4/5]">
+    <div className="max-w-[800px] mx-auto px-6 pt-20 pb-24">
+      {/* Profile photo + bio */}
+      <section className="flex flex-col sm:flex-row sm:items-start gap-10 mb-16">
+        <div className="flex-shrink-0">
+          <div className="relative w-[120px] h-[120px] rounded-full overflow-hidden bg-[#E5E5E5] flex items-center justify-center">
+            <span className="text-muted text-lg font-medium">FM</span>
             <img
               src="/images/flo-profil.jpg"
               alt="Florent Martinez"
-              className="w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
               onError={(e) => {
                 e.currentTarget.style.display = 'none'
               }}
@@ -16,7 +17,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="reveal reveal-delay-1 space-y-6 text-lg leading-relaxed text-ink/85 max-w-prose">
+        <div className="space-y-5 text-base leading-relaxed text-muted max-w-[640px]">
           <p>
             From the peaks of the French Alps to the shores of Barcelona,
             I&apos;ve spent my life meandering between the realms of design and
@@ -35,23 +36,17 @@ export default function About() {
             Beyond the digital realm, you&apos;ll find me immersing myself in
             Barcelona&apos;s vibrant culture, engaging in friendly board game
             matches, or basking in the sun&apos;s embrace on the sandy beaches.
-            And as a true Catalan{' '}
-            <span className="italic">aficionado</span>, I&apos;m always ready to
-            indulge in the delectable pleasures of{' '}
-            <span className="italic">tapas</span> and{' '}
-            <span className="italic">vermut</span>, bringing my enthusiasm to
-            any social gathering.
+            And as a true Catalan <em>aficionado</em>, I&apos;m always ready to
+            indulge in the delectable pleasures of <em>tapas</em> and{' '}
+            <em>vermut</em>, bringing my enthusiasm to any social gathering.
           </p>
         </div>
       </section>
 
       {/* Skills */}
-      <section className="mt-28">
-        <h2 className="font-display text-4xl sm:text-5xl tracking-[-0.02em]">
-          My skills
-        </h2>
-
-        <div className="mt-12 grid sm:grid-cols-3 gap-12">
+      <section className="mb-16">
+        <h2 className="text-lg font-semibold text-ink mb-8">My skills</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
           <SkillGroup
             title="UX Research"
             items={[
@@ -83,16 +78,13 @@ export default function About() {
       </section>
 
       {/* Contact */}
-      <section className="mt-28">
-        <h2 className="font-display text-4xl sm:text-5xl tracking-[-0.02em]">
-          Say <span className="italic">Hi</span> ✌🏻
-        </h2>
-
-        <ul className="mt-10 space-y-4 text-lg">
+      <section>
+        <h2 className="text-lg font-semibold text-ink mb-6">Say Hi ✌🏻</h2>
+        <ul className="space-y-3 text-base">
           <li>
             <a
               href="mailto:hello@florent-martinez.com"
-              className="border-b border-ink/30 hover:border-accent hover:text-accent transition-colors pb-0.5"
+              className="text-ink hover:underline"
             >
               hello@florent-martinez.com
             </a>
@@ -102,26 +94,20 @@ export default function About() {
               href="https://www.linkedin.com/in/florentmartinez/"
               target="_blank"
               rel="noreferrer"
-              className="border-b border-ink/30 hover:border-accent hover:text-accent transition-colors pb-0.5"
+              className="text-ink hover:underline"
             >
-              LinkedIn
+              LinkedIn ↗
             </a>
           </li>
           <li className="text-muted">
             🇫🇷{' '}
-            <a
-              href="tel:+33761043964"
-              className="hover:text-ink transition-colors"
-            >
+            <a href="tel:+33761043964" className="hover:text-ink transition-colors">
               +33 7 61 04 39 64
             </a>
           </li>
           <li className="text-muted">
             🇪🇸{' '}
-            <a
-              href="tel:+34623001244"
-              className="hover:text-ink transition-colors"
-            >
+            <a href="tel:+34623001244" className="hover:text-ink transition-colors">
               +34 623 001 244
             </a>
           </li>
@@ -131,17 +117,13 @@ export default function About() {
   )
 }
 
-type SkillGroupProps = { title: string; items: string[] }
-
-function SkillGroup({ title, items }: SkillGroupProps) {
+function SkillGroup({ title, items }: { title: string; items: string[] }) {
   return (
     <div>
-      <h3 className="text-xs uppercase tracking-[0.18em] text-muted">
-        {title}
-      </h3>
-      <ul className="mt-5 space-y-2 text-base">
+      <h3 className="text-sm font-bold text-ink mb-3">{title}</h3>
+      <ul className="space-y-2 text-sm text-muted">
         {items.map((item) => (
-          <li key={item}>{item}</li>
+          <li key={item}>• {item}</li>
         ))}
       </ul>
     </div>

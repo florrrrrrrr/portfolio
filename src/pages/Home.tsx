@@ -3,31 +3,28 @@ import ProjectCard from '../components/ProjectCard'
 
 export default function Home() {
   return (
-    <>
+    <div className="max-w-[800px] mx-auto px-6 pt-20 pb-24">
       {/* Hero */}
-      <section className="max-w-6xl mx-auto px-6 sm:px-8 pt-24 sm:pt-32 pb-24">
-        <p className="reveal text-sm uppercase tracking-[0.2em] text-muted">
-          Product Designer
-        </p>
-
-        <h1 className="reveal reveal-delay-1 mt-6 display text-5xl sm:text-7xl lg:text-8xl leading-[1.02]">
-          Hi <span className="inline-block">👋🏻</span> I&apos;m{' '}
-          <span className="italic text-accent">Florent</span>, a decade designing
-          products people actually use.
+      <section className="mb-20">
+        <h1
+          className="font-bold leading-tight text-ink"
+          style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
+        >
+          Hi 👋🏻 I&apos;m Florent, a decade designing products people actually
+          use.
         </h1>
-
-        <p className="reveal reveal-delay-2 mt-10 max-w-prose text-xl sm:text-2xl text-muted leading-snug font-display italic">
-          &ldquo;I build the thing that&apos;s actually needed — where user truth
-          meets business strategy.&rdquo;
+        <p className="mt-5 text-lg text-muted font-light max-w-[600px] leading-relaxed">
+          Product Designer based in Barcelona — I build the thing that&apos;s
+          actually needed, where user truth meets business strategy.
         </p>
       </section>
 
       {/* Projects */}
-      <section className="max-w-6xl mx-auto px-6 sm:px-8 space-y-32 sm:space-y-48 pb-16">
-        {projects.map((project, index) => (
-          <ProjectCard key={project.slug} project={project} index={index} />
+      <section className="space-y-20">
+        {projects.map((project) => (
+          <ProjectCard key={project.slug} project={project} />
         ))}
       </section>
-    </>
+    </div>
   )
 }
